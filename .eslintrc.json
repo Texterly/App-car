@@ -21,11 +21,12 @@
         "import/newline-after-import": "error",
         "import/no-duplicates": "error",
         "max-len": ["error", 120],
+        "arrow-parens": "off",
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
         "@typescript-eslint/comma-dangle": "off",
         "@typescript-eslint/lines-between-class-members": "off",
-        // "@typescript-eslint/quotes": ["error", "double"],
+        "@typescript-eslint/quotes": ["error", "double"],
         "@typescript-eslint/no-shadow": "error",
         "@typescript-eslint/no-explicit-any": 0,
         "@angular-eslint/directive-selector": [
