@@ -5,6 +5,7 @@ import { AdminComponent } from "./shared/components/admin/admin.component";
 import { ArticleModule } from "./shared/components/article/article.module";
 import { TestModule } from "./shared/components/test/test.module";
 import { HomeModule } from "./shared/components/home/home.module";
+import { NotFoundComponent } from "./core/components/not-found/not-found.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -30,22 +31,8 @@ const routes: Routes = [
           import("./shared/components/test/test.module").then(m => TestModule)
       }
     ]
-    // loadChildren: () =>
-    //   import("./shared/components/admin/admin.module").then(m => AdminModule)
-  }
-  //   ]
-  // }
-  // {
-  //   path: "admin",
-  //   component: AdminComponent,
-  //   children: [
-  //     { path: "article", component: ArticleComponent },
-  //     { path: "test", component: TestComponent }
-  //   ]
-  // }
-  // { path: "article", component: ArticleComponent },
-  // { path: "test", component: TestComponent }
-  // { path: '**', component: PageNotFoundComponent },
+  },
+  { path: "**", component: NotFoundComponent }
 ];
 
 @NgModule({
