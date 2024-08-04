@@ -13,7 +13,7 @@ export class AppComponent {
     private router: Router
   ) {}
   title = "car";
-  private history: string[] = [];
+
   goBack(): void {
     this.location.back();
   }
