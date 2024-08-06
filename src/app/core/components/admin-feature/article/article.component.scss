@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  padding-top: 50px;
+  .notes-list {
+    margin-top: 35px;
+    margin-bottom: 70px;
+    display: flex;
+  }
+
+  .floating-add-button {
+    position: fixed;
+    bottom: 0;
+    width: 500px;
+    border-radius: 0;
+    box-shadow: 0px 0px 15px 5px rgba(purple, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 68px;
+    font-size: 24px;
+    &:hover {
+      background-color: #0000ff;
+      color: #ffffff;
+    }
+  }
+}

@@ -1,18 +1,18 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HeaderComponent } from "./core/components/header/header.component";
-import { AdminComponent } from "./shared/components/admin/admin.component";
-import { ArticleModule } from "./shared/components/article/article.module";
-import { TestModule } from "./shared/components/test/test.module";
-import { HomeModule } from "./shared/components/home/home.module";
+import { AdminComponent } from "./core/components/admin-feature/admin/admin.component";
+import { ArticleModule } from "./core/components/admin-feature/article/article.module";
+import { TestModule } from "./core/components/admin-feature/test/test.module";
+import { HomeModule } from "./core/components/home/home.module";
 import { NotFoundComponent } from "./core/components/not-found/not-found.component";
+import { ArticleNoteComponent } from "./core/components/admin-feature/article-note/article-note.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   {
     path: "home",
     loadChildren: () =>
-      import("./shared/components/home/home.module").then(m => HomeModule)
+      import("./core/components/home/home.module").then(m => HomeModule)
   },
   {
     path: "admin",
@@ -21,16 +21,22 @@ const routes: Routes = [
       {
         path: "article",
         loadChildren: () =>
-          import("./shared/components/article/article.module").then(
+          import("./core/components/admin-feature/article/article.module").then(
             m => ArticleModule
           )
       },
       {
         path: "test",
         loadChildren: () =>
-          import("./shared/components/test/test.module").then(m => TestModule)
+          import("./core/components/admin-feature/test/test.module").then(
+            m => TestModule
+          )
       }
     ]
+  },
+  {
+    path: "admin/article/new",
+    component: ArticleNoteComponent
   },
   { path: "**", component: NotFoundComponent }
 ];
