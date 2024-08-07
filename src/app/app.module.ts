@@ -9,13 +9,15 @@ import { HeaderComponent } from "./core/components/header/header.component";
 import { AdminComponent } from "./core/components/admin-feature/admin/admin.component";
 import { NotFoundComponent } from "./core/components/not-found/not-found.component";
 import { ArticleNoteModule } from "./core/components/admin-feature/article-note/article-note.module";
+import { MainComponent } from './core/components/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
