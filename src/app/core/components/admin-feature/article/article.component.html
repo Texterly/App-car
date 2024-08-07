@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="notes-list">
+    <app-article-card
+      *ngFor="let note of notes; index as i"
+      [routerLink]="[i]"
+      [title]="note.title"
+      [body]="note.body"
+      class="cards"
+    ></app-article-card>
+  </div>
+  <button class="button floating-add-button is-primary" routerLink="new">
+    + Add
+  </button>
+</div>

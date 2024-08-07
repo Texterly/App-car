@@ -1,0 +1,63 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "airbnb-base",
+        "airbnb-typescript/base"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "prefer-const": "off",
+        "implicit-arrow-linebreak": 0,
+        "import/prefer-default-export": "off",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "max-len": ["error", 120],
+        "arrow-parens": "off",
+        // "simple-import-sort/imports": "error",
+        // "simple-import-sort/exports": "error",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/lines-between-class-members": "off",
+        "@typescript-eslint/quotes": ["error", "double"],
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/no-explicit-any": 0,
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    }
+  ]
+}
