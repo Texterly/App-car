@@ -6,6 +6,7 @@ import { TestModule } from "./core/components/admin-feature/test/test.module";
 import { HomeModule } from "./core/components/home/home.module";
 import { NotFoundComponent } from "./core/components/not-found/not-found.component";
 import { ArticleNoteComponent } from "./core/components/admin-feature/article-note/article-note.component";
+import { MainComponent } from "./core/components/main/main.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: "admin/article/:id",
     component: ArticleNoteComponent
+  },
+  {
+    path: "main",
+    component: MainComponent
   },
   { path: "**", component: NotFoundComponent }
 ];
