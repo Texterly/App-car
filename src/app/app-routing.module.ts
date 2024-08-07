@@ -38,6 +38,10 @@ const routes: Routes = [
     path: "admin/article/new",
     component: ArticleNoteComponent
   },
+  {
+    path: "admin/article/:id",
+    component: ArticleNoteComponent
+  },
   { path: "**", component: NotFoundComponent }
 ];
 

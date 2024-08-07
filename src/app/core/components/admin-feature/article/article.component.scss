@@ -8,6 +8,10 @@
     margin-top: 35px;
     margin-bottom: 70px;
     display: flex;
+    flex-direction: column;
+    .cards {
+      margin-top: 20px;
+    }
   }
 
   .floating-add-button {

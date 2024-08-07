@@ -13,6 +13,14 @@
       font-size: 22px;
       font-weight: bold;
       color: purple;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+    .note-card-body {
+      &::first-letter {
+        text-transform: uppercase;
+      }
     }
   }
 }

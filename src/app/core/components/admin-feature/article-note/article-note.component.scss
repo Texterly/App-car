@@ -1,11 +1,36 @@
 .form-container {
   max-width: 500px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 100px;
+  .control {
+    input {
+      height: 30px;
+    }
+    textarea {
+      height: 150px;
+    }
+    .button {
+      height: 30px;
+      width: 60px;
+      border-radius: 5px;
+      border: none;
+    }
+  }
+  .is-success {
+    background-color: #0bf387;
+    color: #000000;
+    margin-left: 20px;
+  }
+}
+
+.is-grouped {
+  display: flex;
+  justify-content: flex-end;
 }
 
 input,
 textarea {
+  min-width: 500px;
   &.ng-invalid.ng-touched {
     border-color: red;
     &:focus {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Note } from "../article/article.model";
 import { ArticleService } from "../article.service";
 
@@ -12,18 +12,38 @@ import { ArticleService } from "../article.service";
 })
 export class ArticleNoteComponent implements OnInit {
   note: Note;
+  noteId: number;
+  new: boolean;
 
   constructor(
     private articleService: ArticleService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.note = new Note();
+    this.route.params.subscribe((params: Params) => {
+      this.note = new Note();
+      if (params.id) {
+        this.note = this.articleService.get(params.id);
+        this.noteId = params.id;
+        this.new = false;
+      } else {
+        this.new = true;
+      }
+    });
   }
   // eslint-disable-next-line class-methods-use-this
   onSubmit(form: NgForm) {
-    this.articleService.add(form.value);
+    if (this.new) {
+      this.articleService.add(form.value);
+    } else {
+      this.articleService.update(
+        this.noteId,
+        form.value.title,
+        form.value.body
+      );
+    }
     this.router.navigateByUrl("/admin/article");
   }
 
