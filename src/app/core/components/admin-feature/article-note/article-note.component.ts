@@ -36,7 +36,7 @@ export class ArticleNoteComponent implements OnInit {
   // eslint-disable-next-line class-methods-use-this
   onSubmit(form: NgForm) {
     if (this.new) {
-      this.articleService.add(form.value);
+      this.articleService.add(form.value.title, form.value.body);
     } else {
       this.articleService.update(
         this.noteId,

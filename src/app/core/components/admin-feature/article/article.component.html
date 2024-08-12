@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="notes-list">
     <app-article-card
-      *ngFor="let note of notes; index as i"
+      *ngFor="let note of notes$ | async; index as i"
       [routerLink]="[i]"
       [title]="note.title"
       [body]="note.body"

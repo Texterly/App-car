@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
 import { Note } from "./article.model";
 import { ArticleService } from "../article.service";
 
@@ -10,10 +11,10 @@ import { ArticleService } from "../article.service";
 })
 export class ArticleComponent implements OnInit {
   notes: Note[] = new Array<Note>();
-
+  notes$: Observable<any[]>;
   constructor(private articleService: ArticleService) {}
 
   ngOnInit(): void {
-    this.notes = this.articleService.getAll();
+    this.notes$ = this.articleService.getAll1();
   }
 }
