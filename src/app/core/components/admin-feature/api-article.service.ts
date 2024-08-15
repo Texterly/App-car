@@ -4,6 +4,8 @@ import {
   addDoc,
   collection,
   collectionData,
+  deleteDoc,
+  doc,
   Firestore
 } from "@angular/fire/firestore";
 import { from, Observable } from "rxjs";
@@ -14,7 +16,7 @@ import { Note } from "./article/article.model";
 })
 export class ApiArticleService {
   constructor(private fs: Firestore) {}
-  notes$: Observable<any[]>;
+  notes$: Observable<Note[]>;
 
   // getNotes(): Observable<Note[]> {
   //   return collectionData(this.notesCollection, {
@@ -34,6 +36,13 @@ export class ApiArticleService {
     let noteCreate = { title, body };
     const notesCollection = collection(this.fs, "notes");
     const promise = addDoc(notesCollection, noteCreate).then(res => res.id);
+    return from(promise);
+  }
+
+  deleteNote(noteId: string) {
+    // eslint-disable-next-line prefer-template
+    const docRef = doc(this.fs, "notes/" + noteId);
+    const promise = deleteDoc(docRef);
     return from(promise);
   }
 }

@@ -6,7 +6,9 @@ import { ApiArticleService } from "./api-article.service";
   providedIn: "root"
 })
 export class ArticleService {
-  notes: Note[] = new Array<Note>();
+  // notes: Note[] = new Array<Note>();
+  notes: Note[];
+  note: Note;
 
   constructor(private apiArticle: ApiArticleService) {}
 
@@ -26,12 +28,6 @@ export class ArticleService {
     return this.notes.indexOf(note);
   }
 
-  // add(note: Note) {
-  //   let newLength = this.notes.push(note);
-  //   let index = newLength - 1;
-  //   return index;
-  // }
-
   add(title: string, body: string) {
     return this.apiArticle.addNote(title, body);
   }
@@ -42,7 +38,13 @@ export class ArticleService {
     note.body = body;
   }
 
-  delete(id: number) {
-    this.notes.splice(id, 1);
+  onDelete(noteId: string) {
+    this.apiArticle.deleteNote(noteId).subscribe({
+      next: () => {
+        this.notes = this.notes.filter(note => note.id !== noteId);
+        console.log("Note deleted successfully");
+      },
+      error: err => console.error("Error deleting note:", err)
+    });
   }
 }
